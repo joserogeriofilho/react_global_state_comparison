@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# React Global State Comparison
+Comparison between two global state strategies: **Redux** (both the connect() useService() functions) and **React Context**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Redux
 
-## Available Scripts
+### Suggested File Structure
+```
++-- 📁 src
+|   +-- 📁 redux
+|     +-- 📁 actions
+|       +-- 📄 actions1.js
+|       ...
+|       +-- 📄 actions9.js
+|       +-- 📄 index.js
+|     +-- 📁 reducers
+|       +-- 📄 reducer1.js
+|       ...
+|       +-- 📄 reducer9.js
+|       +-- 📄 index.js
+|     +-- 📄 index.js
+```
 
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Configuration Steps
+1. **Create the file structure** with at least one reducer file inside `reducers` folder and one actions file inside `actions` folder;
+2. **Create your reducer functions** in separate files: one for each 'dominion' of your global state; after this, unify them all using `combineReducers` and export this 'one reducer to rule them all' as `rootReducer` (or whatever you wanna call it) in the `reducers/index.js` file;
+3. **Create your action functions** inside `actions/index.js`; if your global state is of high complexicity is possible to separete them into differente files and export them all at once in the `actions/index.js` just like you did with the reducers;
+4. **Create and export a `store`** on the `redux/index.js` using the `createStore` function and the root reducer created in the previous step;
+5. **Wrap your application with a Provider** in the `src/index.js` file passing the store created in the previous step;
+6. **Connect a component** with the store using `connect`, `mapStateAsProps` and `mapDispatchToProps` or **use the new react-redux hooks** `useSelector` and `useDispatch`;
