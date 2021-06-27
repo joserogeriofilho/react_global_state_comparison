@@ -48,7 +48,7 @@ it's possible to not export this component and directly wrap your app with the `
 
 ### React Context API Configuration Steps
 1. **Create the file structure**: if multiple providers are to be exported you can create separeted files to each `Provider` or simply put all your state in the `index.js` file;
-2. **Create and export a context** in the `context/index.js` file using `createContext();
-3. **Create and export a `provider` component** with whatever state (including functions) is needed and make it return the previously created context `Provider`, rendering the `children` prop;
-4. **Import your provider component** in the `App.js` component and wrap the children component;
+2. **Create and export a context** in the `context/index.js` file using `createContext()`;
+3. **Create and export a provider component** with whatever state (including functions similar to the **reducer actions**) is needed and make it return the previously created context `Provider`, rendering the `children` prop;
+4. **Import your provider component** in the `App.js` component and wrap the children components who are going to access the sate;
 5. **Get the state using `useContext`** on the child component passing as argument the `Context` previously created;

@@ -8,7 +8,7 @@ function ReduxNewWay() {
   return(
     <div>
       <h1>Redux New Way</h1>
-      <h3>Counter com Redux useSelector, useDispatch</h3>
+      <h3>Using Redux useSelector and useDispatch hooks</h3>
       <p>Counter: {count}</p>
       <button onClick={() => dispatch(increment())}>+</button>
       <button onClick={() => dispatch(decrement())}>-</button>

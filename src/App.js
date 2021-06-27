@@ -1,7 +1,7 @@
 import './App.css';
 
 import { ReduxContext } from './redux';
-import { AppCounterProvider } from './context'
+import { CounterProvider, Counter2Provider } from './context'
 
 import ReduxOldWay from './components/ReduxOldWay';
 import ReduxNewWay from './components/ReduxNewWay';
@@ -15,9 +15,12 @@ function App() {
         <ReduxOldWay />
         <ReduxNewWay />
       </ReduxContext>
-      <AppCounterProvider>
-        <ReactContext />
-      </AppCounterProvider>
+      <CounterProvider>
+        <ReactContext subtitle={"Getting the state using useContext hook"} />
+      </CounterProvider>
+      <Counter2Provider>
+        <ReactContext subtitle={"Using a different Provider and a different counter"} />
+      </Counter2Provider>
     </div>
   );
 }

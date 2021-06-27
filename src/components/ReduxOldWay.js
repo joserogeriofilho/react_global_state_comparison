@@ -5,7 +5,7 @@ function ReduxOldWay({count, increment, decrement}) {
   return(
     <div>
       <h1>Redux Old Way</h1>
-      <h3>Counter com Redux connect, mapStateToProps, mapDispatchToProps</h3>
+      <h3>Connecting the componente using Redux connect, mapStateToProps and mapDispatchToProps</h3>
       <p>Counter: {count}</p>
       <button onClick={() => increment()}>+</button>
       <button onClick={() => decrement()}>-</button>
