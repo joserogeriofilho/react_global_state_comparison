@@ -3,6 +3,9 @@ Comparison between two global state strategies: **Redux** (both the connect() us
 
 **⚠ Over Engineering Context API:** I wanted to show how one could separate state values and functions into different Providers using the Context API similar to what it is done when using Redux reducers and actions. The final result is still simpler than Redux code but you could simplify it even more just putting your context, Provider and state into a single `context/index.js` file or just putting it all into `App.js` component.
 
+[🔗 Live Demo](https://github.com/joserogeriofilho/react_global_state_comparison)
+
+
 ## Summary
 1. Redux
       * Suggested File Structure
